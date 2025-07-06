@@ -1,0 +1,26 @@
+{
+"users": [
+		{
+	"id": 1,
+	"username": "John Deere",
+	"email": "john@jtshealthpartners.com",
+	"client": "JTS Corp",
+	"CreatedDate": "2024-05-23",
+	"active": 1
+	},
+	{
+	"id": 2,
+	"username": "Jane Deere",
+	"email": "jane@jtshealthpartners.com",
+	"client": "JTS Corp",
+	"CreatedDate": "2024-06-23",
+	"active": 1
+	}
+	]
+	,
+"userroles": [
+	 { "id": 1, "username": "John Deere", "rolename": "ROLE_USER", "active": 1 },
+	 { "id": 2, "username": "John Deere", "rolename": "ROLE_ADMIN", "active": 1 },
+	 { "id": 3, "username": "Jane Deere", "rolename": "ROLE_ADMIN", "active": 1 }
+	]
+}
