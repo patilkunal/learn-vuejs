@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Project</title>
+    <style>
+        .box {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .redclass {
+            color: red;
+        }
+        .blueclass {
+            color: blue;
+        }
+    </style>
+</head>
+<body style="color: white; background-color: black;">
+    Hello world!
+
+    APP starts here!
+    <div id="app">
+        <ul>
+            <li v-for="itm in arrdata" :key="itm">
+                {{ itm }}
+            </li>
+        </ul>
+        <!-- either have a string for class or name of existing variable which has value of class-->
+         <!-- v-bind is oneway from model to view. To have 2 way, use v-model -->
+        <div v-bind:class="'redclass'">Example of v-text</div>
+        <p v-text="message" v-bind:class="togglered ? 'redclass' : 'blueclass'"></p>
+        <div>
+            Enter text here: <input type="text" v-model="message"/>
+            <hr/>
+        </div>
+            {{ message }}
+            <!-- same as v-on:click-->
+            <button @click="toggleVisibility()">Toggle box</button>
+        <div class="box" v-if="visible">
+            <h1>Box</h1>
+            <p>This is a box</p>
+        </div>
+        <custom-form></custom-form>
+    </div>
+
+
+    <script src="/vue.global.js""></script>
+    <script https://unpkg.com/vue@3.5.13/dist/vue.global.js></script>
+    <script src="app.js">
+    </script>
+</body>
+</html>
