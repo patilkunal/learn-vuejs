@@ -25,7 +25,6 @@ const app =  Vue.createApp({
 
 //var hostparser = document.createElement('a');
 var host = window.location.hostname; // Get the host from the current
-console.log("Host: " + host);
 if (host === 'localhost' || host === '127.0.0.1') {  
   app.config.globalProperties.API_URL= 'http://localhost:8080';
 } else {

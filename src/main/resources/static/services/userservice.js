@@ -14,7 +14,6 @@ let UserService = function(apiHost) {
             }
             const data = await response.json();
             if(data && Array.isArray(data)) {
-                console.log("UserService.getUsers: " + JSON.stringify(data));
                 return data; //.map(user => new User(user));
             } else if (data && typeof data === 'object') {
                 // If data is a single object, convert it to User instance

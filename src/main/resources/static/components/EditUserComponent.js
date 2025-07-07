@@ -1,4 +1,5 @@
 import UserService from "/services/userservice.js";
+//import * as DataTable from "/datatables/datatables.js"; // Assuming you have a DataTable library
 
 let EditUserComponent = {
     template: `
@@ -46,14 +47,15 @@ let EditUserComponent = {
             },
             allRoles: [], // Placeholder for roles
             selectedRoles: [],
-            error: null
+            error: null,
+            dt: null
         };
     },
     computed: {
         textlength() {
             return this.user.email ? this.user.email.length : 0;
         }
-    },
+    },    
     async mounted() {
         try {
             const username = this.$route.params.username; // Assuming username is passed as a route parameter

@@ -27,13 +27,7 @@ let HomeComponent = {
         return {
             message: "Welcome to the Home Page!"
         }
-    },
-    computed: {},
-    methods: {},
-    created() {
-        console.log("HomeComponent created");
-    },
-
+    }
 };
 
 export default HomeComponent;

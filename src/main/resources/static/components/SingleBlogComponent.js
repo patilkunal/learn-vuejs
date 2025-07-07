@@ -1,11 +1,11 @@
 let SingleBlogComponent = {
     template: `
-            <div class="card" class="mb-3">
+            <div class="card mb-3">
             <div class="card-header">
                 <h5 class="card-title">{{ post?.title }}</h5>
             </div>
             <div class="card-body">
-    \            <p class="card-text">{{ post?.body }}</p>
+                <p class="card-text">{{ post?.body }}</p>
             </div>
         </div>
 `,

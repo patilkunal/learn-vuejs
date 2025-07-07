@@ -2,30 +2,30 @@ import UserService from "/services/userservice.js";
 
 let UserListComponent = {
     template: `
-    <table class="table thead-dark table-striped table-bordered">
+    <table id="userListTable" class="table thead-dark table-striped table-bordered">
         <thead>
             <tr>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Roles</th>
-                <th scope="col">Actions</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="user in users" :key="user.username">
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ user?.username }}</td>
+                <td>{{ user?.email }}</td>
                 <td>
-                    <span v-for="role in user.roles" :key="role" class="badge bg-secondary me-1">
+                    <span v-for="role in user?.roles" :key="role" class="badge bg-secondary me-1">
                         {{ role }}
                     </span>
                 </td>
                 <td>
-                    <button class="btn btn-primary" @click="$router.push({ name: 'edituser', params: { username: user.username } })">
+                    <button class="btn btn-primary" @click="$router.push({ name: 'edituser', params: { username: user?.username } })">
                         Edit
                     </button>
                     <!--
-                    <button class="btn btn-danger" @click="deleteUser(user.id)">
+                    <button class="btn btn-danger" @click="deleteUser(user?.id)">
                         Delete
                     </button>
                     -->
@@ -37,12 +37,24 @@ let UserListComponent = {
     data() {
         return {
             users: [],
-            error: null
+            error: null,
+            dt: null
         }
     },
-    async mounted() {
-            console.log("UserListComponent created " + this.API_URL);
+    beforeRouteLeave (to, from ) {
+        this.dt.destroy();
+    },
+    async created() {
             await this.fetchUsers();
+        var dt1 = jQuery('#userListTable').DataTable({
+                columns: [
+                    { },
+                    { },
+                    { orderable: false, searchable: false },
+                    { orderable: false, searchable: false }
+                ]
+            });
+        this.dt = dt1;
     },
     methods: { 
         async fetchUsers() {
